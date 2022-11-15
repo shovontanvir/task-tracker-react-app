@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TaskItem from "../components.jsx/TaskItem";
+import CreateTask from "../components.jsx/CreateTask";
 
 const TaskPage = () => {
   const [taskItem, setTaskItem] = useState();
@@ -23,6 +24,9 @@ const TaskPage = () => {
       <p className="text-yellow-300 leading-loose text-2xl tracking-wide">
         Track your tasks in a organized manner
       </p>
+      <div className="w-full my-5 flex justify-center">
+        <CreateTask />
+      </div>
       <div className="flex justify-between flex-wrap">
         <div className="basis-1/2 p-10">
           <h1 className="text-4xl text-red-300 font-bold">Task To-Do</h1>
