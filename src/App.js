@@ -1,11 +1,15 @@
 import TaskPage from "./pages/TaskPage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
 function App() {
   return (
-    <div className='px-32 py-16 font-brand'>
-      <TaskPage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<TaskPage />} />
+      </Routes>
+    </Router>
+    
   );
 }
 
