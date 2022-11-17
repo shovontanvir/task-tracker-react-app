@@ -20,7 +20,6 @@ const CreateTask = (props) => {
         type="text"
         placeholder="Enter Task Name to Add"
         className="w-full p-5 rounded-lg text-slate-800"
-        id="newTask"
         ref={taskInputRef}
       />
       <Button

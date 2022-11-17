@@ -8,11 +8,13 @@ const TaskItem = (props) => {
         <h1 className="text-4xl text-left capitalize text-cyan-400">
           {props.title}
         </h1>
+        {/* <h1>{props.id}</h1> */}
       </div>
       <div className="flex">
         <Button
-          action="Done"
+          action={props.action}
           btnClass="border-green-300 text-green-400 hover:bg-green-700"
+          onclick={props.onclick}
         />
         <Button
           action="Delete"
