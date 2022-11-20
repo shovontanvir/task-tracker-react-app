@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TaskItem from "../components.jsx/TaskItem";
 import CreateTask from "../components.jsx/CreateTask";
-import { useNavigate } from "react-router-dom";
 
 const TaskPage = () => {
   // function to post data to firebase using axios
-  const navigate = useNavigate();
   const infoHandler = async (sentTask) => {
     await axios({
       url: "https://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker.json",
@@ -16,8 +14,6 @@ const TaskPage = () => {
         "content-type": "application/json",
       },
     });
-    await navigate("/");
-    // console.log("Sent Task = ", sentTask);
   };
 
   // function to fetch data from firebase using axios
@@ -30,7 +26,6 @@ const TaskPage = () => {
         "http://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker.json"
       );
       const data = await res.data;
-      // console.log(data)
       const tasks = [];
 
       for (let key in data) {
@@ -38,11 +33,8 @@ const TaskPage = () => {
           id: key,
           ...data[key],
         };
-        // console.log(task);
         tasks.push(task);
         setTaskItem(tasks);
-
-        // console.log("taskItem", taskItem);
       }
     };
 
@@ -50,7 +42,6 @@ const TaskPage = () => {
   }, [taskItem]);
 
   // function to handle when done button is clicked
-
   const doneHandler = (task) => {
     const { id, ...newData } = task;
     const updateTask = {
@@ -65,11 +56,11 @@ const TaskPage = () => {
         "content-type": "application/json",
       },
     });
-    console.log("done pressed");
   };
 
+  // function to handle when done button is clicked
   const unDoneHandler = (task) => {
-    const { isDone, ...newData } = task;
+    const { isDone, id, ...newData } = task;
     const updateTask = {
       ...newData,
     };
@@ -81,9 +72,17 @@ const TaskPage = () => {
         "content-type": "application/json",
       },
     });
-    console.log("done pressed");
   };
 
+  // function to handle when delete button is clicked
+  const deleteHandler = (task) => {
+    axios({
+      url: `https://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker/${task.id}.json`,
+      method: "DELETE",
+    });
+  };
+
+  // function to sort todo and acomplished tasks
   const toDoTasks = [];
   const doneTasks = [];
   const sortTasks = (taskItem) => {
@@ -121,6 +120,7 @@ const TaskPage = () => {
                 key={index}
                 action={!item.isDone ? "Done" : "Put Back"}
                 onclick={() => doneHandler(item)}
+                onDeleteClick={() => deleteHandler(item)}
               />
             ))}
         </div>
@@ -137,6 +137,7 @@ const TaskPage = () => {
                 key={index}
                 onclick={() => unDoneHandler(item)}
                 action={!item.isDone ? "Done" : "Put Back"}
+                onDeleteClick={(item) => deleteHandler(item)}
               />
             ))}
         </div>

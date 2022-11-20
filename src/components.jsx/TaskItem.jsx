@@ -19,6 +19,7 @@ const TaskItem = (props) => {
         <Button
           action="Delete"
           btnClass="border-red-400 text-orange-400 hover:bg-red-900"
+          onclick={props.onDeleteClick}
         />
       </div>
     </div>
