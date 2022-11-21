@@ -23,7 +23,7 @@ const TaskPage = () => {
   useEffect(() => {
     const fetchTask = async () => {
       const res = await axios.get(
-        "http://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker.json"
+        "https://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker.json"
       );
       const data = await res.data;
       const tasks = [];
