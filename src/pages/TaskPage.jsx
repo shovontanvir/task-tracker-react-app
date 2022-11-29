@@ -137,7 +137,7 @@ const TaskPage = () => {
                 key={index}
                 onclick={() => unDoneHandler(item)}
                 action={!item.isDone ? "Done" : "Put Back"}
-                onDeleteClick={(item) => deleteHandler(item)}
+                onDeleteClick={() => deleteHandler(item)}
               />
             ))}
         </div>
