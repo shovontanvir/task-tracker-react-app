@@ -1,31 +1,22 @@
-import React, { useState } from "react";
-import TaskItem from "../components/TaskItem";
+import React from "react";
 import CreateTask from "../components/CreateTask";
 import Layout from "../components/Layout";
-import { postData, putData } from "../services/ApiAction";
+// import { putData } from "../services/ApiAction";
 import ToDoTasks from "../components/ToDoTasks";
 
 const TaskPage = () => {
-  // function to post data to firebase using axios
-  // const infoHandler = async (sentTask) => {
-  //   await postData(
-  //     "https://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker",
-  //     sentTask
+  // const unDoneHandler = (task) => {
+  //   const { isDone, id, ...newData } = task;
+  //   const updateTask = {
+  //     ...newData,
+  //   };
+
+  //   putData(
+  //     "https://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker/",
+  //     task.id,
+  //     updateTask
   //   );
   // };
-  // function to handle when done button is clicked
-  const unDoneHandler = (task) => {
-    const { isDone, id, ...newData } = task;
-    const updateTask = {
-      ...newData,
-    };
-
-    putData(
-      "https://task-tracker-react-tailwind-default-rtdb.asia-southeast1.firebasedatabase.app/task-tracker/",
-      task.id,
-      updateTask
-    );
-  };
 
   // function to sort todo and acomplished tasks
 
