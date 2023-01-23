@@ -538,6 +538,12 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.m-auto{
+  margin: auto;
+}
+.m-2{
+  margin: 0.5rem;
+}
 .mx-3{
   margin-left: 0.75rem;
   margin-right: 0.75rem;
@@ -546,8 +552,17 @@ video {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.ml-3{
+  margin-left: 0.75rem;
+}
+.mb-5{
+  margin-bottom: 1.25rem;
+}
 .flex{
   display: flex;
+}
+.min-h-screen{
+  min-height: 100vh;
 }
 .w-1\/2{
   width: 50%;
@@ -555,8 +570,14 @@ video {
 .w-full{
   width: 100%;
 }
+.w-3\/4{
+  width: 75%;
+}
 .basis-1\/2{
   flex-basis: 50%;
+}
+.flex-col{
+  flex-direction: column;
 }
 .flex-wrap{
   flex-wrap: wrap;
@@ -594,6 +615,10 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(87 83 78 / var(--tw-bg-opacity));
 }
+.bg-sky-800{
+  --tw-bg-opacity: 1;
+  background-color: rgb(7 89 133 / var(--tw-bg-opacity));
+}
 .p-5{
   padding: 1.25rem;
 }
@@ -616,11 +641,22 @@ video {
   padding-top: 4rem;
   padding-bottom: 4rem;
 }
+.py-20{
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+.px-20{
+  padding-left: 5rem;
+  padding-right: 5rem;
+}
 .text-left{
   text-align: left;
 }
 .text-center{
   text-align: center;
+}
+.text-start{
+  text-align: start;
 }
 .font-brand{
   font-family: Kalam, cursive;
@@ -637,8 +673,15 @@ video {
   font-size: 3.75rem;
   line-height: 1;
 }
+.text-sm{
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
 .font-bold{
   font-weight: 700;
+}
+.font-light{
+  font-weight: 300;
 }
 .capitalize{
   text-transform: capitalize;

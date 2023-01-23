@@ -1,10 +1,13 @@
 import React, { useRef } from "react";
+import { useQueryClient } from "react-query";
 import Button from "./Button";
+import { postToDo } from "../services/ApiAction";
 
-const CreateTask = (props) => {
+const CreateTask = () => {
   const taskInputRef = useRef();
+  const queryClient = useQueryClient();
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     const enteredTask = taskInputRef.current.value;
 
@@ -12,7 +15,8 @@ const CreateTask = (props) => {
       taskname: enteredTask,
     };
     taskInputRef.current.value = null;
-    props.onAddTask(taskObject);
+    await postToDo(taskObject);
+    queryClient.invalidateQueries(["to-do-list"]);
   };
   return (
     <form className="w-1/2 flex" onSubmit={submitHandler}>
